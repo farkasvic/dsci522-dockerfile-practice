@@ -25,7 +25,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: farkasvic/dsci522-dockerfile-practice
+          images: vicf123/dsci522-dockerfile-practice
           tags: |
             type=sha
             type=raw,value=latest
