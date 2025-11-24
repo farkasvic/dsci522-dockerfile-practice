@@ -18,5 +18,5 @@ RUN mamba create --yes --quiet --name assignment2 --file /tmp/conda-linux-64.loc
 
 EXPOSE 8888
 
-# add a comment to test workflow
+# add a comment to test workflow2
 CMD ["start-notebook.sh"]
