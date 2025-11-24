@@ -1,8 +1,3 @@
-# Publishes docker image, pinning actions to a commit SHA,
-# and updating most recently built image with the latest tag.
-# Can be triggered by either pushing a commit that changes the `Dockerfile`, 
-# or manually dispatching the workflow.
-
 name: Publish Docker image
 
 on: 
@@ -32,8 +27,8 @@ jobs:
         with:
           images: farkasvic/dsci522-dockerfile-practice
           tags: |
-            type=raw, value={{sha}},enable=${{github.ref_type != 'tag' }}
-            type=raw, value=latest
+            type=sha
+            type=raw,value=latest
       
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
@@ -43,3 +38,4 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+
